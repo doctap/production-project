@@ -3,6 +3,21 @@ import webpack from 'webpack';
 import { IBuildOptions } from './types/config';
 
 export const buildLoaders = ({ isDev }: IBuildOptions): webpack.RuleSetRule[] => {
+
+  const svgLoader = {
+    test: /\.svg$/,
+    use: ['@svgr/webpack'],
+  }
+
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif|woff|woff2)$/i,
+    use: [
+      {
+        loader: 'file-loader',
+      },
+    ],
+  }
+
   const typescriptLoader = {
     test: /\.tsx?$/,
     use: 'ts-loader',
@@ -29,6 +44,8 @@ export const buildLoaders = ({ isDev }: IBuildOptions): webpack.RuleSetRule[] =>
   }
 
   return [
+    svgLoader,
+    fileLoader,
     typescriptLoader,
     scssLoader,
   ];
