@@ -1,5 +1,5 @@
-import { AboutPage } from "pages/aboutPage"
-import { MainPage } from "pages/mainPage"
+import { AboutPage } from "pages/AboutPage"
+import { MainPage } from "pages/MainPage"
 import { RouteProps } from "react-router-dom"
 
 
