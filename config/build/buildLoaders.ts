@@ -20,7 +20,7 @@ export const buildLoaders = ({ isDev }: IBuildOptions): webpack.RuleSetRule[] =>
 
   const typescriptLoader = {
     test: /\.tsx?$/,
-    use: 'ts-loader',
+    use: 'babel-loader',
     exclude: '/node_modules/'
   }
 
