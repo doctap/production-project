@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext } from 'react'
 
 export enum Theme {
   DARK = 'dark',
@@ -6,9 +6,10 @@ export enum Theme {
 }
 
 interface IThemeContextProps {
-  theme?: Theme
-  setTheme?: (theme: Theme) => void
+  theme: Theme
+  setTheme: (theme: Theme) => void
 }
 
-export const ThemeContext = createContext<IThemeContextProps>({});
-export const LOCAL_STORAGE_THEME_KEY = 'theme';
+// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+export const ThemeContext = createContext<IThemeContextProps>({} as IThemeContextProps)
+export const LOCAL_STORAGE_THEME_KEY = 'theme'

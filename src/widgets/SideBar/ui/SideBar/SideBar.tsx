@@ -8,7 +8,7 @@ interface ISideBarProps {
   className?: string
 }
 
-export const SideBar = ({ className }: ISideBarProps) => {
+export const SideBar = ({ className = '' }: ISideBarProps) => {
   const [collapsed, setCollapsed] = useState(true)
 
   const toggle = () => {
