@@ -6,8 +6,7 @@ module.exports = {
     "extends": [
         "eslint:recommended",
         "standard-with-typescript",
-        // for fix deprecated react render method
-        // "plugin:react/jsx-runtime"
+        "plugin:i18next/recommended"
     ],
     "overrides": [
         {
@@ -27,13 +26,15 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "i18next"
     ],
     "rules": {
         "react/react-in-jsx-scope": [0],
         "@typescript-eslint/explicit-function-return-type": [0],
         "no-unused-vars": "warn",
-        "no-underscore-dangle": "off"
+        "no-underscore-dangle": "off",
+        "i18next/no-literal-string": ["error", {"markupOnly": true }]
     },
     globals: {
         _IS_DEV_: true

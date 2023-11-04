@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib'
-import cls from './LangSwitcher.module.scss'
 import { useTranslation } from 'react-i18next'
 import { Button, ButtonTheme } from 'shared/ui'
 
@@ -21,7 +20,7 @@ export const LangSwitcher = ({ className = '' }: ILangSwitcherProps) => {
   return (
     <Button
       onClick={toggle}
-      className={classNames(cls.LangSwitcher, [className])}
+      className={classNames('', [className])}
       theme={ButtonTheme.CLEAR}
     >
       {t('lng')}
