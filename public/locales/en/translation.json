@@ -1,5 +1,6 @@
 {
   "lng": "English",
   "translate": "Translate",
-  "test": "Here is translate"
+  "test": "Here is translate",
+  "not-found-page": "Page not found"
 }
