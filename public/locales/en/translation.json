@@ -2,5 +2,10 @@
   "lng": "English",
   "translate": "Translate",
   "test": "Here is translate",
-  "not-found-page": "Page not found"
+  "not-found-page": "Page not found",
+  "bug-button": "Bug init",
+  "page-error": {
+    "title": "Something went wrong! We're working on it.",
+    "button": "Reload"
+  }
 }
