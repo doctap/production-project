@@ -1,14 +1,14 @@
 module.exports = {
-    "env": {
+    env: {
         "browser": true,
         "es2021": true
     },
-    "extends": [
+    extends: [
         "eslint:recommended",
         "standard-with-typescript",
         "plugin:i18next/recommended"
     ],
-    "overrides": [
+    overrides: [
         {
             "env": {
                 "node": true
@@ -21,15 +21,15 @@ module.exports = {
             }
         }
     ],
-    "parserOptions": {
+    parserOptions: {
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-    "plugins": [
+    plugins: [
         "react",
         "i18next"
     ],
-    "rules": {
+    rules: {
         "react/react-in-jsx-scope": [0],
         "@typescript-eslint/explicit-function-return-type": [0],
         "no-unused-vars": "warn",
@@ -38,5 +38,11 @@ module.exports = {
     },
     globals: {
         _IS_DEV_: true
-    }
+    },
+    overrides: {
+        files: ['**/src/**/*.test.{ts,tsx}'],
+        rules: {
+            'i18next/no-literal-string': 'off'
+        },
+    },
 }

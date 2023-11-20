@@ -22,3 +22,5 @@ i18n
   }).catch(e => {
     console.error(e)
   })
+
+export default i18n
