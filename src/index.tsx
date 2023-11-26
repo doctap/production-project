@@ -13,6 +13,6 @@ ReactDOM.render(
           <App />
         </ThemeProvider>
     </ErrorBoundary>
-    </BrowserRouter>,
+  </BrowserRouter>,
   document.getElementById('root')
 )

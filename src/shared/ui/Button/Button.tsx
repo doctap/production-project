@@ -4,7 +4,8 @@ import type { ButtonHTMLAttributes, FC } from 'react'
 
 export enum ButtonTheme {
   CLEAR = 'clear',
-  RELOAD = 'reload'
+  RELOAD = 'reload',
+  OUTLINE = 'outline',
 }
 
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
