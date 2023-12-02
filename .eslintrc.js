@@ -34,15 +34,17 @@ module.exports = {
         "@typescript-eslint/explicit-function-return-type": [0],
         "no-unused-vars": "warn",
         "no-underscore-dangle": "off",
-        "i18next/no-literal-string": ["error", {"markupOnly": true }]
+        "i18next/no-literal-string": ["error", { "markupOnly": true }]
     },
     globals: {
         _IS_DEV_: true
     },
-    overrides: {
-        files: ['**/src/**/*.test.{ts,tsx}'],
-        rules: {
-            'i18next/no-literal-string': 'off'
-        },
-    },
+    overrides: [
+        {
+            files: ['**/src/**/*.test.{ts,tsx}'],
+            rules: {
+                'i18next/no-literal-string': 'off'
+            },
+        }
+    ],
 }
