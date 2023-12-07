@@ -1,9 +1,10 @@
-import webpack, { RuleSetRule } from 'webpack'
-import { IBuildPaths } from '../build/types/config'
+import type webpack from 'webpack'
+import type { RuleSetRule } from 'webpack'
+import type { IBuildPaths } from '../build/types/config'
 import path from 'path'
 import { buildScssLoader } from '../build/loaders/buildScssLoader'
 
-export default ({ config }: { config: webpack.Configuration}) => {
+export default ({ config }: { config: webpack.Configuration }) => {
   const paths: IBuildPaths = {
     build: '',
     entry: '',
@@ -14,10 +15,10 @@ export default ({ config }: { config: webpack.Configuration}) => {
   config.resolve?.modules?.push(paths.src)
   config.resolve?.extensions?.push('.ts', 'tsx')
 
-  // @ts-ignore
+  // @ts-expect-error (everything is clear)
   config.module?.rules = config.module?.rules?.map((rule: RuleSetRule) => {
-    if (/svg/.test(rule.test as string)) {
-      return {...rule, exclude: /\.svg$/i}
+    if ((rule.test as string).includes('svg')) {
+      return { ...rule, exclude: /\.svg$/i }
     }
 
     return rule
