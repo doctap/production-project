@@ -1,6 +1,6 @@
 import React from 'react'
 
-function jestEmptyComponent () {
+function jestEmptyComponent() {
   return <div />
 }
 

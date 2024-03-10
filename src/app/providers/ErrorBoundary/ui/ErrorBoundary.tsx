@@ -10,27 +10,26 @@ interface IErrorBoundaryState {
 }
 
 export class ErrorBoundary extends React.Component<IErrorBoundaryProps, IErrorBoundaryState> {
-  constructor (props: IErrorBoundaryProps) {
+  constructor(props: IErrorBoundaryProps) {
     super(props)
     this.state = { hasError: false }
   }
 
-  static getDerivedStateFromError () {
+  static getDerivedStateFromError() {
     // Обновить состояние с тем, чтобы следующий рендер показал запасной UI.
     return { hasError: true }
   }
 
-  componentDidCatch (error: Error, errorInfo: ErrorInfo) {
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     // Можно также сохранить информацию об ошибке в соответствующую службу журнала ошибок
     console.error(error, errorInfo)
   }
 
-  render () {
-    if (this.state.hasError) {
-      // Можно отрендерить запасной UI произвольного вида
-      return <PageError />
-    }
+  render() {
+    const { hasError } = this.state
+    const { children } = this.props
 
-    return this.props.children
+    // Можно отрендерить запасной UI произвольного вида
+    return hasError ? <PageError /> : children
   }
 }

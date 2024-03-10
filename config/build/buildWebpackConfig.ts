@@ -14,14 +14,14 @@ export const buildWebpackConfig = (options: IBuildOptions): webpack.Configuratio
     output: {
       filename: '[name].[contenthash].js',
       path: paths.build,
-      clean: true
+      clean: true,
     },
     resolve: buildResolvers(options),
     module: {
-      rules: buildLoaders(options)
+      rules: buildLoaders(options),
     },
     plugins: buildPlugins(options),
     devtool: isDev ? 'inline-source-map' : undefined,
-    devServer: isDev ? buildDevServer(options) : undefined
+    devServer: isDev ? buildDevServer(options) : undefined,
   }
 }

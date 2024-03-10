@@ -6,6 +6,6 @@ export const classNames = (className: string, add: string[] = [], mods: Mods = {
     ...add.filter(Boolean),
     ...Object.entries(mods)
       .filter(([_, value]) => Boolean(value))
-      .map(([key, _]) => key)
+      .map(([key, _]) => key),
   ].join(' ').trim()
 )

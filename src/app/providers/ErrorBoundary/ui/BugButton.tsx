@@ -21,7 +21,7 @@ export const BugButton = () => {
       onClick={errorInit}
       theme={ButtonTheme.CLEAR}
     >
-        {t('bug-button')}
+      {t('bug-button')}
     </Button>
   )
 }

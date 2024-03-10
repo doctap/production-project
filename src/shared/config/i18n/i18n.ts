@@ -13,13 +13,14 @@ i18n
     debug: _IS_DEV_,
 
     interpolation: {
-      escapeValue: false
+      escapeValue: false,
     },
 
     backend: {
-      loadPath: '/locales/{{lng}}/{{ns}}.json'
-    }
-  }).catch(e => {
+      loadPath: '/locales/{{lng}}/{{ns}}.json',
+    },
+  })
+  .catch(e => {
     console.error(e)
   })
 

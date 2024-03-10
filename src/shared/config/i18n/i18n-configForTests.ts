@@ -1,7 +1,7 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 
-export function initI18nextTest () {
+export function initI18nextTest() {
   i18n
     .use(initReactI18next)
     .init({
@@ -10,10 +10,10 @@ export function initI18nextTest () {
       debug: false,
 
       interpolation: {
-        escapeValue: false // not needed for react!!
+        escapeValue: false, // not needed for react!!
       },
 
-      resources: { en: { translations: {} } }
+      resources: { en: { translations: {} } },
     }).catch(e => {
       console.error(e)
     })

@@ -1,61 +1,61 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import React from 'react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { AppLink, AppLinkTheme } from './AppLink';
-import { ThemeDecorator } from 'shared/config/storybook/themeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
+import { ThemeDecorator } from 'shared/config/storybook/themeDecorator/ThemeDecorator'
+import { Theme } from 'app/providers/ThemeProvider'
+import { AppLink, AppLinkTheme } from './AppLink'
 
 export default {
-    title: 'shared/AppLink',
-    component: AppLink,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
-    args: {
-      to: '/'
-    }
-} as ComponentMeta<typeof AppLink>;
+  title: 'shared/AppLink',
+  component: AppLink,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
+  args: {
+    to: '/',
+  },
+} as ComponentMeta<typeof AppLink>
 
-const Template: ComponentStory<typeof AppLink> = (args) => <AppLink {...args} />;
+const Template: ComponentStory<typeof AppLink> = args => <AppLink {...args} />
 
-export const Primary = Template.bind({});
+export const Primary = Template.bind({})
 Primary.args = {
-    children: 'Text',
-    theme: AppLinkTheme.PRIMARY,
-};
+  children: 'Text',
+  theme: AppLinkTheme.PRIMARY,
+}
 
-export const PrimaryDark = Template.bind({});
+export const PrimaryDark = Template.bind({})
 PrimaryDark.args = {
-    children: 'Text',
-    theme: AppLinkTheme.PRIMARY,
-};
+  children: 'Text',
+  theme: AppLinkTheme.PRIMARY,
+}
 
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const Inverted = Template.bind({});
+export const Inverted = Template.bind({})
 Inverted.args = {
-    children: 'Text',
-    theme: AppLinkTheme.INVERTED,
-};
+  children: 'Text',
+  theme: AppLinkTheme.INVERTED,
+}
 
-export const InvertedDark = Template.bind({});
+export const InvertedDark = Template.bind({})
 InvertedDark.args = {
-    children: 'Text',
-    theme: AppLinkTheme.INVERTED,
-};
+  children: 'Text',
+  theme: AppLinkTheme.INVERTED,
+}
 
 InvertedDark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const Red = Template.bind({});
+export const Red = Template.bind({})
 Red.args = {
-    children: 'Text',
-    theme: AppLinkTheme.RED,
-};
+  children: 'Text',
+  theme: AppLinkTheme.RED,
+}
 
-export const RedDark = Template.bind({});
+export const RedDark = Template.bind({})
 RedDark.args = {
-    children: 'Text',
-    theme: AppLinkTheme.RED,
-};
+  children: 'Text',
+  theme: AppLinkTheme.RED,
+}
 
 RedDark.decorators = [ThemeDecorator(Theme.DARK)]
