@@ -1,4 +1,4 @@
-module.exports = (api) => {
+module.exports = api => {
   // This caches the Babel config
   api.cache.using(() => process.env.NODE_ENV)
 
@@ -7,9 +7,9 @@ module.exports = (api) => {
       '@babel/preset-env',
       '@babel/preset-typescript',
       // Enable development transform of React with new automatic runtime
-      ['@babel/preset-react', { development: !api.env('production'), runtime: 'automatic' }]
+      ['@babel/preset-react', { development: !api.env('production'), runtime: 'automatic' }],
     ],
     // Applies the react-refresh Babel plugin on non-production modes only
-    ...((!api.env('production') && !api.env('test')) && { plugins: ['react-refresh/babel'] })
+    ...((!api.env('production') && !api.env('test')) && { plugins: ['react-refresh/babel'] }),
   }
 }

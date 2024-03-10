@@ -21,7 +21,7 @@ module.exports = {
   ],
   ignorePatterns: ['*.test.*'],
   rules: {
-    'linebreak-style': ['error', 'windows'],
+    'linebreak-style': ['error', 'unix'],
     semi: ['error', 'never'],
     'import/extensions': 'off',
     'import/no-unresolved': 'off',
