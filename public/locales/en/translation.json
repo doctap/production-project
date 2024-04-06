@@ -1,9 +1,12 @@
 {
-  "lng": "English",
+  "lng": "Русский",
+  "lng-short": "Ru",
   "translate": "Translate",
   "test": "Here is translate",
   "not-found-page": "Page not found",
   "bug-button": "Bug init",
+  "main-page-link": "Main",
+  "about-page-link": "About us",
   "page-error": {
     "title": "Something went wrong! We're working on it.",
     "button": "Reload"

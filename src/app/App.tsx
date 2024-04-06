@@ -4,7 +4,6 @@ import { NavBar } from 'widgets/NavBar'
 import { SideBar } from 'widgets/SideBar'
 import { Suspense } from 'react'
 import { AppRouter } from './providers/Router'
-import { BugButton } from './providers/ErrorBoundary'
 
 export const App = () => {
   const { theme } = useTheme()
@@ -13,7 +12,6 @@ export const App = () => {
     <div className={classNames('app', [theme])}>
       <Suspense fallback="">
         <NavBar />
-        <BugButton />
         <div className="main-content">
           <SideBar />
           <AppRouter />

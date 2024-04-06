@@ -38,6 +38,7 @@ module.exports = {
     'no-underscore-dangle': 'off',
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'warn',
+    'object-curly-newline': ['error', { ImportDeclaration: { multiline: true } }],
   },
   globals: {
     _IS_DEV_: true,

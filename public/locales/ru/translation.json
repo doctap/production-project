@@ -1,9 +1,12 @@
 {
-  "lng": "Русский",
+  "lng": "English",
+  "lng-short": "En",
   "translate": "Перевод",
   "test": "Это перевод",
   "not-found-page": "Страница не найдена",
   "bug-button": "Инициализация ошибки",
+  "main-page-link": "Главная",
+  "about-page-link": "О нас",
   "page-error": {
     "title": "Что-то пошло не так! Мы уже работаем над этим.",
     "button": "Перезагрузить"

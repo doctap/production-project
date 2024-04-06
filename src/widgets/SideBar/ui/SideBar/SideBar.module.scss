@@ -6,8 +6,28 @@
   position: relative;
 }
 
-.collapsed {
-  width: var(--sidebar-width-collapsed);
+.items {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0 0 28px;
+}
+
+.itemLink {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.icon {
+  position: absolute;
+  fill: var(--inverted-primary-color);
+}
+
+.link {
+  white-space: nowrap;
+  margin-left: 30px;
+  opacity: 10;
+  transition: 0.2s opacity;
 }
 
 .swithers {
@@ -20,4 +40,28 @@
 
 .langSwitcher {
   margin-left: 10px;
+}
+
+.sidebarToggle {
+  position: absolute;
+  bottom: 32px;
+  right: -32px;
+}
+
+.collapsed {
+  width: var(--sidebar-width-collapsed);
+
+  .link {
+    width: 0;
+    opacity: 0;
+    transition: 0.2s opacity;
+  }
+
+  .swithers {
+    flex-direction: column;
+  }
+
+  .langSwitcher {
+    margin-left: 0;
+  }
 }

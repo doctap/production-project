@@ -3,10 +3,11 @@ import { useTranslation } from 'react-i18next'
 import { Button, ButtonTheme } from 'shared/ui'
 
 export interface ILangSwitcherProps {
-  className?: string
+  className?: string,
+  short?: boolean,
 }
 
-export const LangSwitcher = ({ className = '' }: ILangSwitcherProps) => {
+export const LangSwitcher = ({ className = '', short = false }: ILangSwitcherProps) => {
   const { t, i18n } = useTranslation()
 
   const toggle = () => {
@@ -23,7 +24,7 @@ export const LangSwitcher = ({ className = '' }: ILangSwitcherProps) => {
       className={classNames('', [className])}
       theme={ButtonTheme.CLEAR}
     >
-      {t('lng')}
+      {t(short ? 'lng-short' : 'lng')}
     </Button>
   )
 }
