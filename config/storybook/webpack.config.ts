@@ -1,4 +1,4 @@
-import type webpack from 'webpack'
+import webpack from 'webpack'
 import type { RuleSetRule } from 'webpack'
 import path from 'path'
 import type { IBuildPaths } from '../build/types/config'
@@ -32,6 +32,10 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
   const scssLoader = buildScssLoader(true)
   config.module?.rules?.push(scssLoader)
+
+  config.plugins?.push(new webpack.DefinePlugin({
+    _IS_DEV_: JSON.stringify(true),
+  }))
 
   return config
 }

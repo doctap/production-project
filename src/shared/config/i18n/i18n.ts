@@ -10,10 +10,15 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: 'en',
+    supportedLngs: ['en', 'ru'],
     debug: _IS_DEV_,
 
     interpolation: {
       escapeValue: false,
+    },
+
+    react: {
+      useSuspense: false,
     },
 
     backend: {

@@ -1,8 +1,9 @@
 import { Story } from '@storybook/react'
-import { Theme } from 'app/providers/ThemeProvider'
+import { I18nextProvider } from 'react-i18next'
+import i18n from 'shared/config/i18n/i18n'
 
-export const TranslationDecorator = (theme: Theme) => (story: () => Story) => (
-  <div className={`app ${theme}`}>
-    {story()}
-  </div>
+export const TranslationDecorator = (Story: Story) => (
+  <I18nextProvider i18n={i18n}>
+    <Story />
+  </I18nextProvider>
 )
