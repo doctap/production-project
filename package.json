@@ -91,6 +91,7 @@
   "loki": {
     "chromeEnableAnimations": false,
     "verboseRenderer": true,
+    "chromeDockerImage": "yukinying/chrome-headless-browser:85.0.4181.8",
     "configurations": {
       "chrome.laptop": {
         "target": "chrome.docker",
