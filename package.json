@@ -13,7 +13,7 @@
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:ui": "npx loki test",
-    "test:ui:ci": "concurrently --kill-others \"npm run storybook\" \"npm run test:ui\"",
+    "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static",
     "test:ui:ok": "npx loki approve",
     "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
     "test:ui:json": "node scripts/generate-visual-json-report.js",
@@ -52,7 +52,6 @@
     "@typescript-eslint/eslint-plugin": "^5.12.1",
     "@typescript-eslint/parser": "^5.12.1",
     "babel-loader": "^8.2.3",
-    "concurrently": "^8.2.2",
     "css-loader": "^6.6.0",
     "eslint": "^8.10.0",
     "eslint-config-airbnb": "^19.0.4",
@@ -90,19 +89,16 @@
     "react-router-dom": "^6.2.1"
   },
   "loki": {
-    "chromeEnableAnimations": false,
-    "verboseRenderer": true,
-    "chromeDockerImage": "yukinying/chrome-headless-browser:85.0.4181.8",
     "configurations": {
       "chrome.laptop": {
-        "target": "chrome.docker",
+        "target": "chrome.app",
         "width": 1366,
         "height": 768,
         "deviceScaleFactor": 1,
         "mobile": false
       },
       "chrome.iphone7": {
-        "target": "chrome.docker",
+        "target": "chrome.app",
         "preset": "iPhone 7"
       }
     }
