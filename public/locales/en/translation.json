@@ -10,5 +10,8 @@
   "page-error": {
     "title": "Something went wrong! We're working on it.",
     "button": "Reload"
+  },
+  "buttons": {
+    "login": "Login"
   }
 }

@@ -4,6 +4,7 @@ import cls from './Button.module.scss'
 
 export enum ButtonTheme {
   CLEAR = 'clear',
+  CLEAR_INVERTED = 'clearInverted',
   RELOAD = 'reload',
   OUTLINE = 'outline',
   BACKGROUND = 'background',
@@ -44,7 +45,7 @@ export const Button: FC<IButtonProps> = props => {
     <button
       type="button"
       onClick={onClick}
-      className={classNames(cls.Button, [className], mods)}
+      className={classNames(cls.Button, mods, [className])}
       {...otherProps}
     >
       {children}

@@ -24,7 +24,7 @@ export const SideBar = ({ className = '' }: ISideBarProps) => {
   return (
     <div
       data-testid="sidebar"
-      className={classNames(cls.SideBar, [className], { [cls.collapsed]: collapsed })}
+      className={classNames(cls.SideBar, { [cls.collapsed]: collapsed }, [className])}
     >
       <div className={cls.items}>
         <AppLink

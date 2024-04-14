@@ -21,8 +21,8 @@ export const LangSwitcher = ({ className = '', short = false }: ILangSwitcherPro
   return (
     <Button
       onClick={toggle}
-      className={classNames('', [className])}
-      theme={ButtonTheme.CLEAR}
+      className={classNames('', {}, [className])}
+      theme={ButtonTheme.CLEAR_INVERTED}
     >
       {t(short ? 'lng-short' : 'lng')}
     </Button>
