@@ -13,5 +13,8 @@
   },
   "buttons": {
     "login": "Login"
-  }
+  },
+  "increment": "increment",
+  "decrement": "decrement",
+  "lorem": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas suscipit earum accusamus illo deserunt porro id sed, asperiores alias. Expedita sit facilis omnis commodi laboriosam quisquam, a assumenda id voluptatibus."
 }

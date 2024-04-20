@@ -18,8 +18,7 @@ export const NavBar = ({ className = '' }: INavBarProps) => {
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
       >
-        {/* eslint-disable-next-line */}
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas suscipit earum accusamus illo deserunt porro id sed, asperiores alias. Expedita sit facilis omnis commodi laboriosam quisquam, a assumenda id voluptatibus.
+        {t('lorem')}
       </Modal>
       <Button
         className={cls.loginButton}
