@@ -8,13 +8,29 @@ export interface IModalProps {
   isOpen?: boolean
   children?: ReactNode
   onClose?: () => void
+  lazy?: boolean
 }
 
 const ANIMATION_DELAY = 100
 
-export const Modal = ({ className = '', isOpen = false, children, onClose }: IModalProps) => {
+export const Modal = (props: IModalProps) => {
+  const {
+    className = '',
+    isOpen = false,
+    children,
+    onClose,
+    lazy,
+  } = props
+
   const [isClosing, setIsClosing] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
   const timeRef = useRef<ReturnType<typeof setTimeout>>()
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true)
+    }
+  }, [isOpen])
 
   const mods: Record<string, boolean> = {
     [cls.opened]: isOpen,
@@ -28,6 +44,7 @@ export const Modal = ({ className = '', isOpen = false, children, onClose }: IMo
       timeRef.current = setTimeout(() => {
         onClose()
         setIsClosing(false)
+        setIsMounted(false)
       }, ANIMATION_DELAY)
     }
   }, [onClose])
@@ -55,7 +72,7 @@ export const Modal = ({ className = '', isOpen = false, children, onClose }: IMo
     }
   }, [isOpen, onKeyDown])
 
-  return (
+  return !isMounted && lazy ? null : (
     <Portal>
       <div className={classNames(cls.Modal, mods, [className])}>
         <div className={cls.overlay} onClick={onCloseHandler}>

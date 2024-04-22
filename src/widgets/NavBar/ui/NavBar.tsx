@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { classNames } from 'shared/lib'
 import { Button, ButtonTheme, Modal } from 'shared/ui'
+import { LoginModal } from 'features/AuthByUsername'
 import { useTranslation } from 'react-i18next'
 import cls from './NavBar.module.scss'
 
@@ -10,20 +11,22 @@ export interface INavBarProps {
 
 export const NavBar = ({ className = '' }: INavBarProps) => {
   const { t } = useTranslation()
-  const [isOpen, setIsOpen] = useState(false)
+  const [isAuthModal, setIsAuthModal] = useState(false)
+
+  const onModalToggle = () => {
+    setIsAuthModal(prev => !prev)
+  }
 
   return (
     <div className={classNames(cls.NavBar, {}, [className])}>
-      <Modal
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-      >
-        {t('lorem')}
-      </Modal>
+      <LoginModal
+        isOpen={isAuthModal}
+        onClose={onModalToggle}
+      />
       <Button
         className={cls.loginButton}
         theme={ButtonTheme.CLEAR_INVERTED}
-        onClick={() => setIsOpen(true)}
+        onClick={onModalToggle}
       >
         {t('buttons.login')}
       </Button>
