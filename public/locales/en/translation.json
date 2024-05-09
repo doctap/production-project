@@ -12,7 +12,8 @@
     "button": "Reload"
   },
   "buttons": {
-    "login": "Login"
+    "login": "Login",
+    "logout": "Logout"
   },
   "increment": "increment",
   "decrement": "decrement",
@@ -20,5 +21,11 @@
   "inputLabels": {
     "username": "Username",
     "password": "Password"
+  },
+  "titles": {
+    "loginForm": "Log In"
+  },
+  "errors": {
+    "loginByUserName": "Incorrect login and password"
   }
 }

@@ -23,9 +23,11 @@
   padding: 20px;
   border-radius: 12px;
   background: var(--bg-color);
-  max-width: 60%;
   transform: scale(0.2);
   transition: transform 0.2s;
+  max-width: 400px;
+  width: 40%;
+  min-width: 300px;
 }
 
 .opened {

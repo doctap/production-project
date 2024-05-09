@@ -12,7 +12,8 @@
     "button": "Перезагрузить"
   },
   "buttons": {
-    "login": "Войти"
+    "login": "Войти",
+    "logout": "Выйти"
   },
   "increment": "увеличение",
   "decrement": "уменьшить",
@@ -20,5 +21,11 @@
   "inputLabels": {
     "username": "Имя пользователя",
     "password": "Пароль"
+  },
+  "titles": {
+    "loginForm": "Авторизуйтесь"
+  },
+  "errors": {
+    "loginByUserName": "Неверные логин и пароль"
   }
 }
