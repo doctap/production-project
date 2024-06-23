@@ -12,17 +12,17 @@ export interface ILoginFormProps {
   className?: string
 }
 
-export const LoginForm = ({ className = '' }: ILoginFormProps) => {
+const LoginForm = ({ className = '' }: ILoginFormProps) => {
   const { t } = useTranslation()
 
   const { username, password, error, isLoading } = useSelector(getLoginState)
   const dispatch = useDispatch()
 
-  const setUsername = useCallback((value: string) => {
+  const onChangeUsername = useCallback((value: string) => {
     dispatch(loginAction.setUsername(value))
   }, [dispatch])
 
-  const setPassword = useCallback((value: string) => {
+  const onChangePassword = useCallback((value: string) => {
     dispatch(loginAction.setPassword(value))
   }, [dispatch])
 
@@ -37,12 +37,12 @@ export const LoginForm = ({ className = '' }: ILoginFormProps) => {
       <Input
         autoFocus
         value={username}
-        onChange={setUsername}
+        onChange={onChangeUsername}
         placeholder={t('inputLabels.username')}
       />
       <Input
         value={password}
-        onChange={setPassword}
+        onChange={onChangePassword}
         placeholder={t('inputLabels.password')}
       />
       <Button
@@ -56,3 +56,5 @@ export const LoginForm = ({ className = '' }: ILoginFormProps) => {
     </div>
   )
 }
+
+export default LoginForm
