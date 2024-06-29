@@ -37,10 +37,12 @@ export const NavBar = ({ className = '' }: INavBarProps) => {
     </div>
   ) : (
     <div className={classNames(cls.NavBar, {}, [className])}>
-      <LoginModal
-        isOpen={isAuthModal}
-        onClose={onModalToggle}
-      />
+      {isAuthModal && (
+        <LoginModal
+          isOpen={isAuthModal}
+          onClose={onModalToggle}
+        />
+      )}
       <Button
         className={cls.loginButton}
         theme={ButtonTheme.CLEAR_INVERTED}

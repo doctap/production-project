@@ -9,7 +9,6 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "strictNullChecks": true,
     "baseUrl": ".",
     "paths": {
       "*": [
