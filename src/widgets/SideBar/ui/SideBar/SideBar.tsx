@@ -14,50 +14,50 @@ interface ISideBarProps {
 }
 
 export const SideBar = ({ className = '' }: ISideBarProps) => {
-  const [collapsed, setCollapsed] = useState(true)
-  const { t } = useTranslation()
+    const [collapsed, setCollapsed] = useState(true)
+    const { t } = useTranslation()
 
-  const toggle = () => {
-    setCollapsed(!collapsed)
-  }
+    const toggle = () => {
+        setCollapsed(!collapsed)
+    }
 
-  return (
-    <div
-      data-testid="sidebar"
-      className={classNames(cls.SideBar, { [cls.collapsed]: collapsed }, [className])}
-    >
-      <div className={cls.items}>
-        <AppLink
-          className={cls.itemLink}
-          theme={AppLinkTheme.INVERTED}
-          to={RoutePaths.main}
+    return (
+        <div
+            data-testid="sidebar"
+            className={classNames(cls.SideBar, { [cls.collapsed]: collapsed }, [className])}
         >
-          <MainIcon className={cls.icon} />
-          <span className={cls.link}>{t('main-page-link')}</span>
-        </AppLink>
-        <AppLink
-          className={cls.itemLink}
-          theme={AppLinkTheme.INVERTED}
-          to={RoutePaths.about}
-        >
-          <AboutIcon className={cls.icon} />
-          <span className={cls.link}>{t('about-page-link')}</span>
-        </AppLink>
-      </div>
-      <Button
-        className={cls.sidebarToggle}
-        theme={ButtonTheme.BACKGROUND_INVERTED}
-        data-testid="sidebar-toggle"
-        onClick={toggle}
-        square
-        size={ButtonSize.L}
-      >
-        {collapsed ? '>' : '<'}
-      </Button>
-      <div className={cls.swithers}>
-        <ThemeSwitcher />
-        <LangSwitcher short={collapsed} className={cls.langSwitcher} />
-      </div>
-    </div>
-  )
+            <div className={cls.items}>
+                <AppLink
+                    className={cls.itemLink}
+                    theme={AppLinkTheme.INVERTED}
+                    to={RoutePaths.main}
+                >
+                    <MainIcon className={cls.icon} />
+                    <span className={cls.link}>{t('main-page-link')}</span>
+                </AppLink>
+                <AppLink
+                    className={cls.itemLink}
+                    theme={AppLinkTheme.INVERTED}
+                    to={RoutePaths.about}
+                >
+                    <AboutIcon className={cls.icon} />
+                    <span className={cls.link}>{t('about-page-link')}</span>
+                </AppLink>
+            </div>
+            <Button
+                className={cls.sidebarToggle}
+                theme={ButtonTheme.BACKGROUND_INVERTED}
+                data-testid="sidebar-toggle"
+                onClick={toggle}
+                square
+                size={ButtonSize.L}
+            >
+                {collapsed ? '>' : '<'}
+            </Button>
+            <div className={cls.swithers}>
+                <ThemeSwitcher />
+                <LangSwitcher short={collapsed} className={cls.langSwitcher} />
+            </div>
+        </div>
+    )
 }

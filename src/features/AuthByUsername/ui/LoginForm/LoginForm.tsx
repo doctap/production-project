@@ -17,57 +17,57 @@ export interface ILoginFormProps {
 }
 
 const initialReducers: ReducerList = {
-  loginForm: loginReducer,
+    loginForm: loginReducer,
 }
 
 const LoginForm = ({ className = '' }: ILoginFormProps) => {
-  const { t } = useTranslation()
-  const username = useSelector(getLoginUsername)
-  const password = useSelector(getLoginPassword)
-  const isLoading = useSelector(getLoginLoading)
-  const error = useSelector(getLoginError)
+    const { t } = useTranslation()
+    const username = useSelector(getLoginUsername)
+    const password = useSelector(getLoginPassword)
+    const isLoading = useSelector(getLoginLoading)
+    const error = useSelector(getLoginError)
 
-  const dispatch = useDispatch()
+    const dispatch = useDispatch()
 
-  const onChangeUsername = useCallback((value: string) => {
-    dispatch(loginAction.setUsername(value))
-  }, [dispatch])
+    const onChangeUsername = useCallback((value: string) => {
+        dispatch(loginAction.setUsername(value))
+    }, [dispatch])
 
-  const onChangePassword = useCallback((value: string) => {
-    dispatch(loginAction.setPassword(value))
-  }, [dispatch])
+    const onChangePassword = useCallback((value: string) => {
+        dispatch(loginAction.setPassword(value))
+    }, [dispatch])
 
-  const onLoginClick = useCallback(() => {
-    dispatch(loginByUserName({ username, password }))
-  }, [dispatch, username, password])
+    const onLoginClick = useCallback(() => {
+        dispatch(loginByUserName({ username, password }))
+    }, [dispatch, username, password])
 
-  return (
-    <DynamicModuleLoader reducers={initialReducers}>
-      <div className={classNames(cls.LoginForm, {}, [className])}>
-        <Text title={t('titles.loginForm')} />
-        {error && <Text text={error} theme={TextTheme.ERROR} />}
-        <Input
-          autoFocus
-          value={username}
-          onChange={onChangeUsername}
-          placeholder={t('inputLabels.username')}
-        />
-        <Input
-          value={password}
-          onChange={onChangePassword}
-          placeholder={t('inputLabels.password')}
-        />
-        <Button
-          className={cls.loginBtn}
-          theme={ButtonTheme.OUTLINE}
-          onClick={onLoginClick}
-          disabled={isLoading}
-        >
-          {t('buttons.login')}
-        </Button>
-      </div>
-    </DynamicModuleLoader>
-  )
+    return (
+        <DynamicModuleLoader reducers={initialReducers}>
+            <div className={classNames(cls.LoginForm, {}, [className])}>
+                <Text title={t('titles.loginForm')} />
+                {error && <Text text={error} theme={TextTheme.ERROR} />}
+                <Input
+                    autoFocus
+                    value={username}
+                    onChange={onChangeUsername}
+                    placeholder={t('inputLabels.username')}
+                />
+                <Input
+                    value={password}
+                    onChange={onChangePassword}
+                    placeholder={t('inputLabels.password')}
+                />
+                <Button
+                    className={cls.loginBtn}
+                    theme={ButtonTheme.OUTLINE}
+                    onClick={onLoginClick}
+                    disabled={isLoading}
+                >
+                    {t('buttons.login')}
+                </Button>
+            </div>
+        </DynamicModuleLoader>
+    )
 }
 
 export default LoginForm

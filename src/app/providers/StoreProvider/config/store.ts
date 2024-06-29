@@ -5,25 +5,25 @@ import { IStateSchema } from './StateSchema'
 import { createReducerManager } from './ReducerManager'
 
 export const createReduxStore = (
-  initialState?: IStateSchema,
-  asyncReducers?: ReducersMapObject<IStateSchema>,
+    initialState?: IStateSchema,
+    asyncReducers?: ReducersMapObject<IStateSchema>,
 ) => {
-  const staticReducers: ReducersMapObject<IStateSchema> = {
-    ...asyncReducers,
-    counter: counterReducer,
-    user: userReducer,
-  }
+    const staticReducers: ReducersMapObject<IStateSchema> = {
+        ...asyncReducers,
+        counter: counterReducer,
+        user: userReducer,
+    }
 
-  const reducerManager = createReducerManager(staticReducers)
+    const reducerManager = createReducerManager(staticReducers)
 
-  const store = configureStore<IStateSchema>({
-    reducer: reducerManager.reduce,
-    devTools: _IS_DEV_,
-    preloadedState: initialState,
-  })
+    const store = configureStore<IStateSchema>({
+        reducer: reducerManager.reduce,
+        devTools: _IS_DEV_,
+        preloadedState: initialState,
+    })
 
-  // @ts-ignore
-  store.reducerManager = reducerManager
+    // @ts-ignore
+    store.reducerManager = reducerManager
 
-  return store
+    return store
 }

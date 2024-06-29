@@ -12,44 +12,44 @@ export interface INavBarProps {
 }
 
 export const NavBar = ({ className = '' }: INavBarProps) => {
-  const { t } = useTranslation()
-  const [isAuthModal, setIsAuthModal] = useState(false)
-  const userAuth = useSelector(getUserAuthData)
-  const dispatch = useDispatch()
+    const { t } = useTranslation()
+    const [isAuthModal, setIsAuthModal] = useState(false)
+    const userAuth = useSelector(getUserAuthData)
+    const dispatch = useDispatch()
 
-  const onModalToggle = useCallback(() => {
-    setIsAuthModal(prev => !prev)
-  }, [])
+    const onModalToggle = useCallback(() => {
+        setIsAuthModal(prev => !prev)
+    }, [])
 
-  const onLogout = useCallback(() => {
-    dispatch(userAction.logout())
-  }, [dispatch])
+    const onLogout = useCallback(() => {
+        dispatch(userAction.logout())
+    }, [dispatch])
 
-  return userAuth ? (
-    <div className={classNames(cls.NavBar, {}, [className])}>
-      <Button
-        className={cls.loginButton}
-        theme={ButtonTheme.CLEAR_INVERTED}
-        onClick={onLogout}
-      >
-        {t('buttons.logout')}
-      </Button>
-    </div>
-  ) : (
-    <div className={classNames(cls.NavBar, {}, [className])}>
-      {isAuthModal && (
-        <LoginModal
-          isOpen={isAuthModal}
-          onClose={onModalToggle}
-        />
-      )}
-      <Button
-        className={cls.loginButton}
-        theme={ButtonTheme.CLEAR_INVERTED}
-        onClick={onModalToggle}
-      >
-        {t('buttons.login')}
-      </Button>
-    </div>
-  )
+    return userAuth ? (
+        <div className={classNames(cls.NavBar, {}, [className])}>
+            <Button
+                className={cls.loginButton}
+                theme={ButtonTheme.CLEAR_INVERTED}
+                onClick={onLogout}
+            >
+                {t('buttons.logout')}
+            </Button>
+        </div>
+    ) : (
+        <div className={classNames(cls.NavBar, {}, [className])}>
+            {isAuthModal && (
+                <LoginModal
+                    isOpen={isAuthModal}
+                    onClose={onModalToggle}
+                />
+            )}
+            <Button
+                className={cls.loginButton}
+                theme={ButtonTheme.CLEAR_INVERTED}
+                onClick={onModalToggle}
+            >
+                {t('buttons.login')}
+            </Button>
+        </div>
+    )
 }

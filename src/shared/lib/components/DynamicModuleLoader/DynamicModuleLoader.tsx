@@ -15,43 +15,43 @@ export interface IDynamicModuleLoaderProps {
 type ReducerEntry = [StateSchemaKey, Reducer]
 
 export const DynamicModuleLoader: FC<IDynamicModuleLoaderProps> = ({
-  children,
-  reducers,
-  removeUnmount = false,
+    children,
+    reducers,
+    removeUnmount = false,
 }) => {
-  const store = useStore() as IReduxStoreWithManager
-  const dispatch = useDispatch()
+    const store = useStore() as IReduxStoreWithManager
+    const dispatch = useDispatch()
 
-  const manageReducers = (action: '@INIT' | '@DESTROY') => {
-    Object.entries(reducers)
-      .forEach(([name, reducer]: ReducerEntry) => {
-        if (action === '@INIT') {
-          store.reducerManager.add(name, reducer)
-          dispatch({ type: `@INIT ${name} reducer` })
-        }
-        if (action === '@DESTROY') {
-          store.reducerManager.remove(name)
-          dispatch({ type: `@DESTROY ${name} reducer` })
-        }
-      })
-  }
+    const manageReducers = (action: '@INIT' | '@DESTROY') => {
+        Object.entries(reducers)
+            .forEach(([name, reducer]: ReducerEntry) => {
+                if (action === '@INIT') {
+                    store.reducerManager.add(name, reducer)
+                    dispatch({ type: `@INIT ${name} reducer` })
+                }
+                if (action === '@DESTROY') {
+                    store.reducerManager.remove(name)
+                    dispatch({ type: `@DESTROY ${name} reducer` })
+                }
+            })
+    }
 
-  useEffect(
-    () => {
-      manageReducers('@INIT')
+    useEffect(
+        () => {
+            manageReducers('@INIT')
 
-      return () => {
-        if (!removeUnmount) manageReducers('@DESTROY')
-      }
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [],
-  )
+            return () => {
+                if (!removeUnmount) manageReducers('@DESTROY')
+            }
+        },
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [],
+    )
 
-  return (
+    return (
     // eslint-disable-next-line react/jsx-no-useless-fragment
-    <>
-      {children}
-    </>
-  )
+        <>
+            {children}
+        </>
+    )
 }

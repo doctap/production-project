@@ -7,14 +7,14 @@ interface IUseThemeResult {
 }
 
 export const useTheme = (): IUseThemeResult => {
-  const { theme, setTheme } = useContext(ThemeContext)
+    const { theme, setTheme } = useContext(ThemeContext)
 
-  const toggleTheme = () => {
-    const value = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK
-    setTheme(value)
-    document.body.className = value
-    localStorage.setItem(LOCAL_STORAGE_THEME_KEY, value)
-  }
+    const toggleTheme = () => {
+        const value = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK
+        setTheme(value)
+        document.body.className = value
+        localStorage.setItem(LOCAL_STORAGE_THEME_KEY, value)
+    }
 
-  return { theme, toggleTheme }
+    return { theme, toggleTheme }
 }

@@ -7,21 +7,21 @@ import { StoreDecorator } from 'shared/config/storybook/storeDecorator/StoreDeco
 import { NavBar } from './NavBar'
 
 export default {
-  title: 'widget/NavBar',
-  component: NavBar,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    title: 'widget/NavBar',
+    component: NavBar,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof NavBar>
 
 const Template: ComponentStory<typeof NavBar> = args => <NavBar {...args} />
 
 const commonDecoratorsLogIn = [
-  StoreDecorator({ user: { userAuth: { id: 1, username: 'username' } } }),
+    StoreDecorator({ user: { userAuth: { id: 1, username: 'username' } } }),
 ]
 
 const commonDecoratorsLogout = [
-  StoreDecorator({ user: undefined }),
+    StoreDecorator({ user: undefined }),
 ]
 
 export const Light = Template.bind({})

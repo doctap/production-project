@@ -5,11 +5,11 @@ import { StoreDecorator } from 'shared/config/storybook/storeDecorator/StoreDeco
 import LoginForm from './LoginForm'
 
 export default {
-  title: 'features/LoginForm',
-  component: LoginForm,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    title: 'features/LoginForm',
+    component: LoginForm,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof LoginForm>
 
 const Template: ComponentStory<typeof LoginForm> = args => <LoginForm {...args} />

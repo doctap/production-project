@@ -10,21 +10,21 @@ interface ILoginByUserName {
 }
 
 export const loginByUserName = createAsyncThunk<IUser, ILoginByUserName, { rejectValue: string }>(
-  'login/loginByUserName',
-  async (authData, thunkAPI) => {
-    try {
-      const response = await axios.post('http://localhost:8000/login', authData)
+    'login/loginByUserName',
+    async (authData, thunkAPI) => {
+        try {
+            const response = await axios.post('http://localhost:8000/login', authData)
 
-      if (!response.data) {
-        throw new Error()
-      }
+            if (!response.data) {
+                throw new Error()
+            }
 
-      localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(response.data))
-      thunkAPI.dispatch(userAction.setAuthData(response.data))
+            localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(response.data))
+            thunkAPI.dispatch(userAction.setAuthData(response.data))
 
-      return response.data
-    } catch {
-      return thunkAPI.rejectWithValue(i18n.t('errors.loginByUserName'))
-    }
-  },
+            return response.data
+        } catch {
+            return thunkAPI.rejectWithValue(i18n.t('errors.loginByUserName'))
+        }
+    },
 )

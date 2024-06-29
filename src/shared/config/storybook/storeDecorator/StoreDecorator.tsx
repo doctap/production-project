@@ -4,14 +4,14 @@ import { IStateSchema, StoreProvider } from 'app/providers/StoreProvider'
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice'
 
 const defaultReducers: DeepPartial<ReducersMapObject<IStateSchema>> = {
-  loginForm: loginReducer,
+    loginForm: loginReducer,
 }
 
 export const StoreDecorator = (
-  state: DeepPartial<IStateSchema>,
-  asyncReducers?: DeepPartial<ReducersMapObject<IStateSchema>>,
+    state: DeepPartial<IStateSchema>,
+    asyncReducers?: DeepPartial<ReducersMapObject<IStateSchema>>,
 ) => (Story: Story) => (
-  <StoreProvider initialState={state} asyncReducers={{ ...defaultReducers, ...asyncReducers }}>
-    <Story />
-  </StoreProvider>
+    <StoreProvider initialState={state} asyncReducers={{ ...defaultReducers, ...asyncReducers }}>
+        <Story />
+    </StoreProvider>
 )

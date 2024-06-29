@@ -26,33 +26,33 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button: FC<IButtonProps> = props => {
-  const {
-    children,
-    className = '',
-    onClick,
-    theme,
-    disabled = false,
-    square = false,
-    size = ButtonSize.M,
-    ...otherProps
-  } = props
+    const {
+        children,
+        className = '',
+        onClick,
+        theme,
+        disabled = false,
+        square = false,
+        size = ButtonSize.M,
+        ...otherProps
+    } = props
 
-  const mods: Record<string, boolean> = {
-    [cls[theme]]: true,
-    [cls.square]: square,
-    [cls[size]]: true,
-    [cls.disabled]: disabled,
-  }
+    const mods: Record<string, boolean> = {
+        [cls[theme]]: true,
+        [cls.square]: square,
+        [cls[size]]: true,
+        [cls.disabled]: disabled,
+    }
 
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={classNames(cls.Button, mods, [className])}
-      disabled={disabled}
-      {...otherProps}
-    >
-      {children}
-    </button>
-  )
+    return (
+        <button
+            type="button"
+            onClick={onClick}
+            className={classNames(cls.Button, mods, [className])}
+            disabled={disabled}
+            {...otherProps}
+        >
+            {children}
+        </button>
+    )
 }

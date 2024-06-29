@@ -8,16 +8,16 @@ interface IThemeProvider {
 }
 
 export const ThemeProvider: FC<IThemeProvider> = ({ children, initialTheme }) => {
-  const [theme, setTheme] = useState<Theme>(initialTheme ?? defaultTheme)
+    const [theme, setTheme] = useState<Theme>(initialTheme ?? defaultTheme)
 
-  const defaultValue = useMemo(() => ({
-    theme,
-    setTheme,
-  }), [theme])
+    const defaultValue = useMemo(() => ({
+        theme,
+        setTheme,
+    }), [theme])
 
-  return (
-    <ThemeContext.Provider value={defaultValue}>
-      {children}
-    </ThemeContext.Provider>
-  )
+    return (
+        <ThemeContext.Provider value={defaultValue}>
+            {children}
+        </ThemeContext.Provider>
+    )
 }
