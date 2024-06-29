@@ -1,0 +1,26 @@
+{
+  "autorun": false,
+  "terminals": [
+    {
+      "name": "dev UI",
+      "command": "npm run start"
+    },
+    {
+      "name": "local server",
+      "command": "npm run start:dev:server"
+    },
+    {
+      "name": "storybook",
+      "command": "npm run storybook"
+    },
+    {
+      "name": "prod build",
+      "execute": false,
+      "command": "npm run build:prod"
+    },
+    {
+      "name": "defult",
+      "focus": true
+    }
+  ]
+}
