@@ -64,11 +64,17 @@ module.exports = {
     },
     overrides: [
         {
-            files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
+            files: [
+                '**/src/**/*.{test,stories}.{ts,tsx}',
+                '**/*.ts',
+            ],
             rules: {
                 'i18next/no-literal-string': 'off',
                 'max-len': 'off',
                 'react/jsx-props-no-spreading': 'off',
+            },
+            env: {
+                jest: true,
             },
         },
     ],
