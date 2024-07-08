@@ -16,18 +16,14 @@ export default {
 
 const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />
 
-const commonDecoratorsLogIn = [
-    StoreDecorator({ user: { userAuth: { id: 1, username: 'username' } } }),
-]
-
-const commonDecoratorsLogout = [
-    StoreDecorator({ user: undefined }),
+const commonDecorators = [
+    StoreDecorator({ profile: { } }),
 ]
 
 export const Light = Template.bind({})
 Light.args = {}
-Light.decorators = commonDecoratorsLogout
+Light.decorators = commonDecorators
 
 export const Dark = Template.bind({})
 Dark.args = {}
-Dark.decorators = [ThemeDecorator(Theme.DARK), ...commonDecoratorsLogIn]
+Dark.decorators = [ThemeDecorator(Theme.DARK), ...commonDecorators]
