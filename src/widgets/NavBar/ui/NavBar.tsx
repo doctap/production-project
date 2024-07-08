@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import { memo, useCallback, useState } from 'react'
 import { classNames } from 'shared/lib'
 import { Button, ButtonTheme } from 'shared/ui'
 import { LoginModal } from 'features/AuthByUsername'
@@ -11,7 +11,7 @@ export interface INavBarProps {
   className?: string
 }
 
-export const NavBar = ({ className = '' }: INavBarProps) => {
+export const NavBar = memo(({ className = '' }: INavBarProps) => {
     const { t } = useTranslation()
     const [isAuthModal, setIsAuthModal] = useState(false)
     const userAuth = useSelector(getUserAuthData)
@@ -52,4 +52,4 @@ export const NavBar = ({ className = '' }: INavBarProps) => {
             </Button>
         </div>
     )
-}
+})

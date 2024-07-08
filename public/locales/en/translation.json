@@ -7,6 +7,7 @@
   "bug-button": "Bug init",
   "main-page-link": "Main",
   "about-page-link": "About us",
+  "profile-page-link": "Profile",
   "page-error": {
     "title": "Something went wrong! We're working on it.",
     "button": "Reload"

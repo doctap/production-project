@@ -1,9 +1,13 @@
 import { useCallback } from 'react'
-import { classNames } from 'shared/lib'
+import {
+    classNames,
+    DynamicModuleLoader,
+    ReducerList,
+    useAppDispatch,
+} from 'shared/lib'
 import { useTranslation } from 'react-i18next'
 import { Button, ButtonTheme, Input, Text, TextTheme } from 'shared/ui'
-import { useDispatch, useSelector } from 'react-redux'
-import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { useSelector } from 'react-redux'
 import { loginAction, loginReducer } from '../../model/slice/loginSlice'
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername'
 import { loginByUserName } from '../../model/services/loginByUsername/loginByUsername'
@@ -14,20 +18,21 @@ import cls from './LoginForm.module.scss'
 
 export interface ILoginFormProps {
   className?: string
+  onSuccess: () => void
 }
 
 const initialReducers: ReducerList = {
     loginForm: loginReducer,
 }
 
-const LoginForm = ({ className = '' }: ILoginFormProps) => {
+const LoginForm = ({ className = '', onSuccess }: ILoginFormProps) => {
     const { t } = useTranslation()
     const username = useSelector(getLoginUsername)
     const password = useSelector(getLoginPassword)
     const isLoading = useSelector(getLoginLoading)
     const error = useSelector(getLoginError)
 
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
     const onChangeUsername = useCallback((value: string) => {
         dispatch(loginAction.setUsername(value))
@@ -37,9 +42,12 @@ const LoginForm = ({ className = '' }: ILoginFormProps) => {
         dispatch(loginAction.setPassword(value))
     }, [dispatch])
 
-    const onLoginClick = useCallback(() => {
-        dispatch(loginByUserName({ username, password }))
-    }, [dispatch, username, password])
+    const onLoginClick = useCallback(async () => {
+        const { meta } = await dispatch(loginByUserName({ username, password }))
+        if (meta.requestStatus === 'fulfilled') {
+            onSuccess()
+        }
+    }, [onSuccess, dispatch, username, password])
 
     return (
         <DynamicModuleLoader reducers={initialReducers}>

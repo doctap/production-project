@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib'
-import type { ButtonHTMLAttributes, FC } from 'react'
+import { memo, type ButtonHTMLAttributes, type FC } from 'react'
 import cls from './Button.module.scss'
 
 export enum ButtonTheme {
@@ -25,7 +25,7 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean
 }
 
-export const Button: FC<IButtonProps> = props => {
+export const Button = memo((props: IButtonProps) => {
     const {
         children,
         className = '',
@@ -55,4 +55,4 @@ export const Button: FC<IButtonProps> = props => {
             {children}
         </button>
     )
-}
+})

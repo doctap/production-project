@@ -1,5 +1,5 @@
 import { Reducer } from '@reduxjs/toolkit'
-import { IReduxStoreWithManager, StateSchemaKey } from 'app/providers/StoreProvider/config/StateSchema'
+import { IReduxStoreWithManager, StateSchemaKey } from 'app/providers/StoreProvider'
 import { FC, useEffect } from 'react'
 import { useDispatch, useStore } from 'react-redux'
 
@@ -41,7 +41,7 @@ export const DynamicModuleLoader: FC<IDynamicModuleLoaderProps> = ({
             manageReducers('@INIT')
 
             return () => {
-                if (!removeUnmount) manageReducers('@DESTROY')
+                if (removeUnmount) manageReducers('@DESTROY')
             }
         },
         // eslint-disable-next-line react-hooks/exhaustive-deps

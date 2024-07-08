@@ -3,7 +3,10 @@
   "terminals": [
     {
       "name": "dev UI",
-      "command": "npm run start"
+      "commands": [
+        "nvm use 17.4.0",
+        "npm run start"
+      ]
     },
     {
       "name": "local server",

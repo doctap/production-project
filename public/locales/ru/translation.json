@@ -7,6 +7,7 @@
   "bug-button": "Инициализация ошибки",
   "main-page-link": "Главная",
   "about-page-link": "О нас",
+  "profile-page-link": "Профиль",
   "page-error": {
     "title": "Что-то пошло не так! Мы уже работаем над этим.",
     "button": "Перезагрузить"

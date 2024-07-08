@@ -25,5 +25,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "firstName": "Васян",
+    "lastName": "Кифирычь",
+    "age": 31,
+    "currency": "EUR",
+    "country": "Казахстан",
+    "city": "Петропавловск",
+    "username": "admin",
+    "avatar": "https://www.abystyle.com/7370942-medium_default/fallout-flexible-mousepad-vault-boy.jpg"
+   }
 }
