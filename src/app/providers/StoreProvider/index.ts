@@ -4,4 +4,5 @@ export {
     IStateSchema,
     StateSchemaKey,
     IReduxStoreWithManager,
+    IThunkConfig,
 } from './config/StateSchema'

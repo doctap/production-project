@@ -5,7 +5,7 @@ import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import type { IBuildOptions } from './types/config'
 
-export const buildPlugins = ({ paths, isDev }: IBuildOptions): webpack.WebpackPluginInstance[] => {
+export const buildPlugins = ({ paths, isDev, apiUrl }: IBuildOptions): webpack.WebpackPluginInstance[] => {
     const plugins = [
         new HtmlWebpackPlugin({
             template: paths.html,
@@ -16,6 +16,7 @@ export const buildPlugins = ({ paths, isDev }: IBuildOptions): webpack.WebpackPl
             chunkFilename: 'css/[name].[contenthash:8].css',
         }),
         new webpack.DefinePlugin({
+            _API_: JSON.stringify(apiUrl),
             _IS_DEV_: JSON.stringify(isDev),
         }),
     ]

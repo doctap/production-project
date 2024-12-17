@@ -1,8 +1,10 @@
 import { AnyAction, CombinedState, EnhancedStore, ReducersMapObject, Reducer } from '@reduxjs/toolkit'
+import { AxiosInstance } from 'axios'
 import { ICounterSchema } from 'entities/Counter'
 import { IProfileSchema } from 'entities/Profile'
 import { IUserSchema } from 'entities/User'
 import { ILoginFormSchema } from 'features/AuthByUsername'
+import { NavigateFunction } from 'react-router-dom'
 
 export interface IStateSchema {
   counter: ICounterSchema
@@ -24,4 +26,14 @@ export interface IReducerManager {
 
 export interface IReduxStoreWithManager extends EnhancedStore<IStateSchema> {
   reducerManager: IReducerManager
+}
+
+export interface IThunkExtraArgs {
+  api: AxiosInstance
+  navigate: NavigateFunction
+}
+
+export interface IThunkConfig<T> {
+  extra: IThunkExtraArgs
+  rejectValue: T
 }
