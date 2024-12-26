@@ -1,15 +1,15 @@
 import { counterReducer } from 'entities/Counter'
 import { userReducer } from 'entities/User'
 import { configureStore, ReducersMapObject } from '@reduxjs/toolkit'
+import { NavigateFunction } from 'react-router-dom'
+import { $api } from 'shared/api/api'
 import { IStateSchema } from './StateSchema'
 import { createReducerManager } from './ReducerManager'
-import { $api } from 'shared/api/api'
-import { NavigateFunction } from 'react-router-dom'
 
 export const createReduxStore = (
     initialState?: IStateSchema,
     asyncReducers?: ReducersMapObject<IStateSchema>,
-    navigate?: NavigateFunction
+    navigate?: NavigateFunction,
 ) => {
     const staticReducers: ReducersMapObject<IStateSchema> = {
         ...asyncReducers,
@@ -28,8 +28,8 @@ export const createReduxStore = (
                 extraArgument: {
                     api: $api,
                     navigate,
-                }
-            }
+                },
+            },
         })),
     })
 

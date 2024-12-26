@@ -5,14 +5,21 @@ import { TranslationDecorator } from '../../src/shared/config/storybook/translat
 import { Theme } from '../../src/app/providers/ThemeProvider'
 import { RouterDecorator } from '../../src/shared/config/storybook/routerDecorator/RouterDecorator'
 
+// TODO: check why storybook runs TestAsyncThunk.ts
+// which contains "jest" variable and then it's undefined
+window.jest = {
+    mock: function mock() {},
+    mocked: function mocked() {},
+}
+
 export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
-  controls: {
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/,
+    actions: { argTypesRegex: '^on[A-Z].*' },
+    controls: {
+        matchers: {
+            color: /(background|color)$/i,
+            date: /Date$/,
+        },
     },
-  },
 }
 
 addDecorator(StyleDecorator)

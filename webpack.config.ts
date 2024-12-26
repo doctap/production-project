@@ -21,7 +21,7 @@ export default (env: IBuildEnv) => {
         paths,
         isDev,
         port: PORT,
-        apiUrl
+        apiUrl,
     })
 
     return config
