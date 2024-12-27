@@ -1,6 +1,5 @@
 export { classNames } from './classNames/classNames'
 export { renderWithTranslations } from './tests/renderWithTranslations/renderWithTranslations'
-export { TestAsyncThunk } from './tests/TestAsyncThunk/TestAsyncThunk'
 export {
     ComponentRender,
     IComponentRenderOptions,

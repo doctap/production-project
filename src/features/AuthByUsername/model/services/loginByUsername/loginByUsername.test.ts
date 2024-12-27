@@ -2,7 +2,6 @@ import { loginByUserName } from './loginByUsername'
 import { userAction } from 'entities/User'
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk'
 
-
 describe('async thunk loginByUsername', () => {
     test('success login', async () => {
         const thunk = new TestAsyncThunk(loginByUserName)
