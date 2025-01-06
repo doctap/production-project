@@ -30,7 +30,7 @@ export interface IReduxStoreWithManager extends EnhancedStore<IStateSchema> {
 
 export interface IThunkExtraArgs {
   api: AxiosInstance
-  navigate: NavigateFunction
+  navigate?: NavigateFunction
 }
 
 export interface IThunkConfig<T> {

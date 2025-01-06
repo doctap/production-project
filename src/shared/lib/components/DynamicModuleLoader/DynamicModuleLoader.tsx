@@ -23,17 +23,18 @@ export const DynamicModuleLoader: FC<IDynamicModuleLoaderProps> = ({
     const dispatch = useDispatch()
 
     const manageReducers = (action: '@INIT' | '@DESTROY') => {
-        Object.entries(reducers)
-            .forEach(([name, reducer]: ReducerEntry) => {
-                if (action === '@INIT') {
-                    store.reducerManager.add(name, reducer)
-                    dispatch({ type: `@INIT ${name} reducer` })
-                }
-                if (action === '@DESTROY') {
-                    store.reducerManager.remove(name)
-                    dispatch({ type: `@DESTROY ${name} reducer` })
-                }
-            })
+        (
+            Object.entries(reducers) as ReducerEntry[]
+        ).forEach(([name, reducer]: ReducerEntry) => {
+            if (action === '@INIT') {
+                store.reducerManager.add(name, reducer)
+                dispatch({ type: `@INIT ${name} reducer` })
+            }
+            if (action === '@DESTROY') {
+                store.reducerManager.remove(name)
+                dispatch({ type: `@DESTROY ${name} reducer` })
+            }
+        })
     }
 
     useEffect(

@@ -58,6 +58,7 @@ module.exports = {
         indent: ['error', 4],
         'react/jsx-indent': ['error', 4],
         'react/jsx-indent-props': ['error', 4],
+        'no-undef': 'off',
     },
     globals: {
         _IS_DEV_: true,

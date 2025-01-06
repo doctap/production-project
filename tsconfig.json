@@ -10,6 +10,7 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "baseUrl": ".",
+    "strict": true,
     "paths": {
       "*": [
         "./src/*"
@@ -26,6 +27,6 @@
     "./src/**/*.ts",
     "./src/**/*.tsx",
     "./config/**/*.ts",
-    "./config/**/*.tsx",
+    "./config/**/*.tsx", "src/entities/Profile/model/selectors/getProfileData",
   ]
 }

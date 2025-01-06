@@ -1,3 +1,7 @@
 {
-    "title": "Profile Page"
+  "title": "Profile Page",
+  "editBtn": "Edit",
+  "ph-firstName": "Your name",
+  "ph-lastName": "Your lastname",
+  "profile": "Profile"
 }

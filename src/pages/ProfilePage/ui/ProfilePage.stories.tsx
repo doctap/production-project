@@ -17,7 +17,7 @@ export default {
 const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />
 
 const commonDecorators = [
-    StoreDecorator({ profile: { } }),
+    StoreDecorator({}),
 ]
 
 export const Light = Template.bind({})
