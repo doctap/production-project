@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib'
+import { classNames, Mods } from 'shared/lib'
 import { ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react'
 import cls from './Input.module.scss'
 
@@ -6,9 +6,10 @@ type InputHTMLProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onC
 
 export interface IInputProps extends InputHTMLProps {
   className?: string
-  value?: string
-  onChange: (value: string) => void
+  value?: string | number
+  onChange?: (value: string) => void
   autoFocus?: boolean
+  readonly?: boolean
 }
 
 export const Input = memo((props: IInputProps) => {
@@ -19,6 +20,7 @@ export const Input = memo((props: IInputProps) => {
         type = 'text',
         placeholder,
         autoFocus = false,
+        readonly,
         ...otherProps
     } = props
 
@@ -27,7 +29,7 @@ export const Input = memo((props: IInputProps) => {
     const inputRef = useRef<HTMLInputElement>(null)
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        onChange(e.currentTarget.value)
+        onChange?.(e.currentTarget.value)
     }
 
     const onFocus = () => {
@@ -49,8 +51,12 @@ export const Input = memo((props: IInputProps) => {
         }
     }, [autoFocus])
 
+    const mods: Mods = {
+        [cls.readonly]: readonly,
+    }
+
     return (
-        <div className={classNames(cls.InputWrapper, {}, [className])}>
+        <div className={classNames(cls.InputWrapper, mods, [className])}>
             {placeholder && (
                 <div className={cls.placeholder}>
                     {`${placeholder}>`}
@@ -66,6 +72,7 @@ export const Input = memo((props: IInputProps) => {
                     onFocus={onFocus}
                     onBlur={onBlur}
                     onSelect={onSelect}
+                    disabled={readonly}
                     {...otherProps}
                 />
                 {isFocus && (

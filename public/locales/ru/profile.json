@@ -3,5 +3,13 @@
   "editBtn": "Редактировать",
   "ph-firstName": "Ваше имя",
   "ph-lastName": "Ваша фамилия",
-  "profile": "Профиль"
+  "profile-title": "Профиль",
+  "error-profile-title": "Ошибка данных пользователя",
+  "error-profile-text": "Какой то текст ошибки",
+  "cancelEditingBtn": "Отмена",
+  "ph-age": "Возраст",
+  "ph-city": "Город",
+  "ph-username": "Имя пользователя",
+  "saveBtn": "Сохранить",
+  "ph-avatar": "Аватар"
 }

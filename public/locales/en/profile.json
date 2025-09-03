@@ -3,5 +3,13 @@
   "editBtn": "Edit",
   "ph-firstName": "Your name",
   "ph-lastName": "Your lastname",
-  "profile": "Profile"
+  "profile-title": "Profile",
+  "error-profile-title": "User data error",
+  "error-profile-text": "Some text error",
+  "cancelEditingBtn": "Cancel",
+  "ph-age": "Age",
+  "ph-city": "City",
+  "ph-username": "User name",
+  "saveBtn": "Save",
+  "ph-avatar": "Avatar"
 }

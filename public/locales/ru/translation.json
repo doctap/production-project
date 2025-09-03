@@ -28,5 +28,7 @@
   },
   "errors": {
     "loginByUserName": "Неверные логин и пароль"
-  }
+  },
+  "select-currency": "Укажите валюту",
+  "select-country": "Укажите страну"
 }

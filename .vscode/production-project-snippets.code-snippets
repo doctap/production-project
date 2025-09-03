@@ -1,0 +1,72 @@
+{
+	// Place your production-project workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"import styles snippet": {
+		"prefix": "im",
+		"body": [
+			"import cls from './${1:$TM_FILENAME_BASE}.module.scss'",
+		],
+		"description": "import styles snippet"
+	},
+	"Function expression snippet": {
+		"prefix": "conf",
+		"body": [
+			"const ${1:name} = (${2:par}: ${3:type}) => {$4}"
+		],
+		"description": "Function expression"
+	},
+	"ClassName JSX snippet": {
+		"prefix": "cl",
+		"body": [
+			"className={cls.$1}$2"
+		],
+		"description": "ClassName JSX"
+	},
+	"Div + ClassName": {
+		"prefix": "dcl",
+		"body": [
+			"<div className={cls.$1}>$2</div>"
+		],
+		"description": "Div + ClassName"
+	},
+	"reactFunctionalExpresionWithInterface": {
+		"prefix": "rfi",
+		"body": [
+			"import { classNames } from 'shared/lib'",
+			"import { useTranslation } from 'react-i18next'",
+			"import cls from './${1:$TM_FILENAME_BASE}.module.scss'",
+			"",
+			"export interface ${1:$TM_FILENAME_BASE}Props {",
+			"  className?: string",
+			"}\n",
+			"export const ${1:$TM_FILENAME_BASE} = (props: ${1:$TM_FILENAME_BASE}Props) => {",
+			"    const {",
+			"        className = '',",
+			"    } = props",
+			"    const { t } = useTranslation()",
+			"",
+			"    return (",
+			"        <div className={classNames(cls.${1:$TM_FILENAME_BASE}, {}, [className])}>",
+			"            ${1:$TM_FILENAME_BASE}",
+			"        </div>",
+			"    )",
+			"}",
+			"",
+		],
+		"description": "reactFunctionalExpresionWithInterface"
+	},
+}

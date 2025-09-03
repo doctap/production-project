@@ -3,13 +3,26 @@
     border: 2px solid var(--inverted-bg-color);
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-}
-
 .profileData {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.loading,
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    flex-direction: column;
+}
+
+.avatarWrap {
+    display: flex;
+    justify-content: center;
+}
+
+.editing {
+    border: 2px solid var(--inverted-primary-color);
 }

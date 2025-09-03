@@ -1,4 +1,5 @@
-import { Country, Currency } from 'shared/consts/common'
+import { Currency } from 'entities/Currency'
+import { Country } from 'entities/Country'
 
 export interface IProfile {
     firstName: string
@@ -11,9 +12,12 @@ export interface IProfile {
     avatar: string
 }
 
+export type Profile = Partial<IProfile>
+
 export interface IProfileSchema {
-    data?: IProfile
+    data?: Profile
+    form?: Profile
     isLoading: boolean
     error?: string
-    readonly?: boolean
+    readonly: boolean
 }

@@ -3,22 +3,25 @@ import { memo, useState } from 'react'
 import { LangSwitcher } from 'widgets/LangSwitcher'
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui'
+import { useSelector } from 'react-redux'
+import { getUserAuthData } from 'entities/User'
 import { SideBarItemList } from '../../model/item'
 import { SideBarItem } from '../SideBarItem/SideBarItem'
 import cls from './SideBar.module.scss'
 
 interface ISideBarProps {
-  className?: string
+    className?: string
 }
 
 export const SideBar = memo(({ className = '' }: ISideBarProps) => {
+    const isAuth = useSelector(getUserAuthData)
     const [collapsed, setCollapsed] = useState(true)
 
     const toggle = () => {
         setCollapsed(!collapsed)
     }
 
-    const itemList = SideBarItemList.map(item => (
+    const itemList = SideBarItemList.filter(item => !item.authOnly || isAuth).map(item => (
         <SideBarItem collapsed={collapsed} key={item.path} item={item} />
     ))
 

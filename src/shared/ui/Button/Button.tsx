@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib'
-import { memo, type ButtonHTMLAttributes, type FC } from 'react'
+import { memo, type ButtonHTMLAttributes } from 'react'
 import cls from './Button.module.scss'
 
 export enum ButtonTheme {
@@ -7,6 +7,7 @@ export enum ButtonTheme {
   CLEAR_INVERTED = 'clearInverted',
   RELOAD = 'reload',
   OUTLINE = 'outline',
+  OUTLINE_RED = 'outline_red',
   BACKGROUND = 'background',
   BACKGROUND_INVERTED = 'backgroundInverted',
 }

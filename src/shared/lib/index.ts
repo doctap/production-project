@@ -1,4 +1,4 @@
-export { classNames } from './classNames/classNames'
+export * from './classNames/classNames'
 export { renderWithTranslations } from './tests/renderWithTranslations/renderWithTranslations'
 export {
     ComponentRender,
